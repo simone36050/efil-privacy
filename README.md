@@ -1,10 +1,10 @@
 # E-fill Privacy
 
-Il 3 gennaio 2021 Michele Pinassi [segnala](https://twitter.com/michele_pinassi/status/1477920944169656320) che il portale dei pagamenti del suo comune utilizza il servizio ReCaptcha di Google senza riportarno nella privacy policy.
+Il 3 gennaio 2021 Michele Pinassi [segnala](https://twitter.com/michele_pinassi/status/1477920944169656320) che il portale dei pagamenti del suo comune utilizza il servizio ReCaptcha di Google senza riportarlo nella privacy policy.
 
 <blockquote class="twitter-tweet"><p lang="it" dir="ltr">Il portale dei pagamenti del mio comune, nella <a href="https://twitter.com/hashtag/privacypolicy?src=hash&amp;ref_src=twsrc%5Etfw">#privacypolicy</a>, non indica che nel codice del portare stesso è incluso lo strumento recaptcha di Google che, incorporato tramite js, acquisisce alcune informazioni relative agli utenti.<br><br>Che faccio? Segnalo? <a href="https://t.co/ACdylGOFvk">pic.twitter.com/ACdylGOFvk</a></p>&mdash; Mic Pin ☄ (@michele_pinassi) <a href="https://twitter.com/michele_pinassi/status/1477920944169656320?ref_src=twsrc%5Etfw">January 3, 2022</a></blockquote>
 
-La stessa piattaforma di pagamento è utilizzata da moltissimi enti, ho quindi pensato di approfondire quanti sono e di che tipo sono.
+La stessa piattaforma di pagamento è utilizzata da moltissimi enti, ho quindi pensato di approfondire quanti e di che tipo sono.
 
 In questo documento trovi i risultati della mia analisi e il proceso che ho seguito per arrivarci.
 
@@ -44,15 +44,15 @@ Ho pulito l'output con lo script [`clean.py`](clean.py)
 
 ### 2. Controllo contenuto
 
-Per tutti i domini ho provato a connettermi, in base all'output assegno uno stato.
+Per tutti i domini ho provato a connettermi, in base all'output capisco se è una piattaforma di pagamento.
 
 Procedura:
 
 1. Se non viene trovato un record DNS per quel dominio lo scarto.
 2. Non tutti i siti web contengono piattaforme di pagamento, alcuni sono domini utili per altre funzionalità. Questi vengono scartati.
 3. Alcuni sottodomini rispondono con pagine di errore, quindi scarto tutte le pagine con stato HTTP diverso da 200.
-4. Provo a capire se il sito web è effettivamente una piattaforma di pagamento controllando se la pagina contine il testo `Benvenuto nel portale dei pagamenti`
-5. Infine controllo se la pagina contiene lo script a Google ReCaptcha.
+4. Provo a capire se il sito web è effettivamente una piattaforma di pagamento controllando se la pagina contine il testo `Benvenuto nel portale dei pagamenti`.
+5. Infine controllo se la pagina contiene lo script di Google ReCaptcha.
 
 Ho impostato un timeout di 15 secondi per ogni dominio, se non ricevo una risposta in tempo lo scarto.
 
@@ -64,7 +64,7 @@ Script: [`check.py`](check.py)
 
 Dei domini che usano ReCaptcha ho provato a classificare la tipologia di ente che utilizza la piattaforma di pagamento.
 
-Questa classificazione è basata su keyword, **quindi potrebbe non essere precisa.**
+Questa classificazione è basata su keyword, quindi **potrebbe non essere precisa**.
 
 Script per pulire l'output: [`filter.py`](filter.py)
 
