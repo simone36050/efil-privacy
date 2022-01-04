@@ -40,7 +40,7 @@ Le piattaforme di pagamento sono hostate nel dominio plugandpay.it, per ricercar
 
 L'output è stato di 1421 sottodomini.
 
-Ho pulito l'output con lo script `script.py`
+Ho pulito l'output con lo script [`clean.py`](clean.py)
 
 ### 2. Controllo contenuto
 
@@ -55,6 +55,8 @@ Procedura:
 5. Infine controllo se la pagina contiene lo script a Google ReCaptcha.
 
 Ho impostato un timeout di 15 secondi per ogni dominio, se non ricevo una risposta in tempo lo scarto.
+
+Per evitare di sovraccare l'infrastruttura ho impostato un delay tra le richieste HTTP, in particolare ho eseguito una richiesta ogni circa 1.5 secondi.
 
 Script: [`check.py`](check.py)
 
